@@ -1,0 +1,50 @@
+
+
+<script>
+
+for(var i=0; i<100; i++){
+   
+    async function asyncConnection() {
+        let promise = new Promise((res, rej) => {
+            const ws = new WebSocket('ws://localhost:5091');
+
+
+
+            setTimeout(() => res("Now it's done!"), 300)
+        });
+
+        // wait until the promise returns us a value
+        let result = await promise; 
+    
+        // "Now it's done!"
+        //alert(result); 
+        }
+    //};
+    asyncConnection();
+
+/*
+    const userID='pingPong-user'+i;
+    var receiver='pancake';
+    ws.onopen = function() {
+        console.log("connected"+'pingPong-user'+i);
+    };
+    ws.onmessage = function(message) {
+      console.log(message);
+      let receivedMessage=JSON.parse(message.data);
+      console.log(receivedMessage);
+      if(receivedMessage.signalType=='ack'){
+        ws.send(JSON.stringify({signalType:'recv_ack',userID:userID,connectionID:receivedMessage.connectionID,value3:''}) );
+      }
+      if(receivedMessage.signalType=='msg'){
+        console.log("message type= "+receivedMessage.signalType);
+        console.log("message content= "+receivedMessage.messageContent)
+      
+      }
+
+    };
+
+    */
+
+}
+     
+</script>
